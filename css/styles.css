@@ -1,3 +1,11 @@
+:root {
+  --body-bg: #effafa;
+  --green: #5ca5a5;
+  --light-green: rgba(92, 165, 165, 0.1);
+  --dark-green: #7c8f8f;
+  --black: #2b3939;
+}
+
 /* GLOBAL */
 html {
   box-sizing: border-box;
@@ -21,40 +29,14 @@ body {
   font-size: 15px;
   line-height: 1.5;
   font-weight: bold;
-  background-color: #effafa;
-  color: #222;
+  background-color: var(--body-bg);
+  color: var(--black);
 }
 
 img {
   max-width: 100%;
   height: auto;
 }
-
-
-/* AUTOFILL-STYLES */
-/*input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  border-color: transparent;
-  -webkit-text-fill-color: inherit;
-  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
-}*/
-
-
-/* PLACEHOLDER-STYLES */
-/*::-webkit-input-placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder,
-:-moz-placeholder {
-  color: rgba(52, 49, 61, 0.5);
-  opacity: 1;
-}*/
 
 
 /* VISUALLY-HIDDEN */
@@ -73,17 +55,56 @@ select:-webkit-autofill:focus {
 /* CONTAINER */
 .container {
   width: 100%;
-  max-width: 1366px;
-  padding-left: 50px;
-  padding-right: 50px;
+  max-width: 1150px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
+}
+
+
+/* BADGES */
+.badge {
+  display: inline-block;
+  padding: 6px 8px 4px;
+  border-radius: 12px;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: -0.08px;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.badge-green {
+  background-color: var(--green);
+  color: #fff;
+}
+
+.badge-black {
+  background-color: var(--black);
+  color: #fff;
+}
+
+
+/* TAG */
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 13px;
+  line-height: 24px;
+  letter-spacing: -0.1px;
+  border-radius: 4px;
+  color: var(--green);
+  background-color: var(--light-green);
+  text-decoration: none;
 }
 
 
 /* MAIN-CONTENT */
 .main-content {
   flex-grow: 1;
+  padding-top: 76px;
   padding-bottom: 120px;
 }
 
@@ -93,8 +114,7 @@ select:-webkit-autofill:focus {
   min-height: 156px;
   margin: 0;
   padding: 0;
-  margin-bottom: 76px;
-  background-color: #5ca5a5;
+  background-color: var(--green);
   background-image: url(../img/header-bg.svg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -102,132 +122,141 @@ select:-webkit-autofill:focus {
 }
 
 
-/* JOB-LIST */
-.job-list {
+/* JOB-LISTINGS */
+.job-listings {
   margin: 0;
   padding: 0;
+  list-style: none;
 } 
 
-.job-item {
+.job-listings-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 152px;
-  padding: 32px 40px;
+  padding: 32px 40px 32px 35px;
   margin-top: 0;
-  margin-bottom: 24px;
+  border-radius: 5px;
+  border-left: 5px solid transparent;
   background-color: #fff;
+  box-shadow: 0px 15px 20px -5px rgba(13, 113, 130, 0.15);
 }
 
-.job-item-left {
-  display: flex;
-  
+.job-listings-item-featured {
+  border-left-color: var(--green);
 }
 
-.job-item-left-inner {
-  display: flex;
-  flex-direction: column;
+.job-listings-item:not(:last-child) {
+  margin-bottom: 24px;
 }
 
-
-.job-item-right {
-  display: flex;
-}
-
-.job-item-img {
-  display: flex;
+.job-listings-logo {
+  flex-shrink: 0;
+  padding: 0;
   margin: 0;
   margin-right: 24px;
-  padding: 0;
+  border-radius: 50%;
   width: 88px;
   height: 88px;
   object-fit: cover;
 }
 
-.job-item-company-name {
-  margin: 0;
-  margin-bottom: 12px;
-  font-size: 14px;
-  line-height: normal;
-  color: #5ca5a5;
-  cursor: pointer;
-}
 
-.job-item-title {
-  margin: 0;
-  margin-bottom: 8px;
-  font-size: 18px;
-  line-height: 24px;
-  color: #2b3939;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.job-about {
-  display: flex;
-  margin: 0;
-  position: relative;
-}
-
-.job-about-data {
-  margin: 0;
-  margin-right: 36px;
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 500;
-  letter-spacing: -0.12px;
-  color: #7c8f8f;
-}
-
-.job-about-time {
-  margin: 0;
-  margin-left: 0;
-  margin-right: 36px;
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 500;
-  letter-spacing: -0.12px;
-  color: #7c8f8f;
-}
-
-.job-about-time::before {
-  position: absolute;
-  top: -3px;
-  left: 71px;
-  left: calc(50% - 20px);
-  content: ".";
-}
-
-.job-about-location {
-  margin: 0;
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 500;
-  letter-spacing: -0.12px;
-  color: #7c8f8f;
-}
-
-.job-about-location::before {
-  position: absolute;
-  top: -3px;
-  left: 182px;
-  content: ".";
-}
-
-.job-item-right-link {
-  padding: 4px 8px;
-  font-size: 13px;
-  line-height: 24px;
-  letter-spacing: -0.1px;
-  border-radius: 3px;
-  color: #5ca5a5;
-  background-color: rgba(92, 165, 165, 0.1);
-  text-decoration: none;
-}
-
-.job-item-right-link:not(:last-child) {
+/* JOB-LISTINGS-INFO */
+.job-listings-info {
+  flex-grow: 1;
   margin-right: 24px;
 }
+
+.job-listings-company-badges {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+} 
+
+.job-listings-company-name {
+  margin: 0;
+  margin-right: 16px;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--green);
+}
+
+/* BADGES */
+.job-listings-badges {
+
+}
+
+.job-listings-badges-item:not(:last-child) {
+  margin-right: 8px;
+}
+
+.job-listings-position {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.job-listings-link {
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--black);
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.job-listings-link:hover {
+  color: var(--green);
+}
+
+/* ADDL */
+.job-listings-addl {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.job-listings-addl-item {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.12px;
+  color: var(--dark-green);
+}
+
+.job-listings-addl-item:not(:last-child) {
+  position: relative;
+  margin-right: 36px;
+}
+
+.job-listings-addl-item:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #b7c4c4;
+  content: "";
+}
+
+
+/* JOB-LISTINGS-TAGS */
+.job-listings-tags {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+.job-listings-tags-item:not(:last-child) {
+  margin-right: 16px;
+}
+
 
 
 @media
